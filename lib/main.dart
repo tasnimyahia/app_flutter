@@ -1,6 +1,10 @@
+import 'package:app_flutter/home_shop.dart';
 import 'package:app_flutter/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:app_flutter/shop_providor.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +37,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: myshop(),
+      //home: myshop(),
+      //home: HomeShop(),
+      home: MultiProvider(providers: [ChangeNotifierProvider(create: (context)=>ShopProvidor())],
+      child: const HomeShop()),
+
+    
     );
   }
 }

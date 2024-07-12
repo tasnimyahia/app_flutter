@@ -1,5 +1,8 @@
+import 'package:app_flutter/home_shop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+
 
 class myshop extends StatefulWidget {
   const myshop({super.key});
@@ -22,6 +25,7 @@ class _myshopState extends State<myshop> {
     });
   }
 
+  // static const screenRoute='/shop-detail';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,17 +36,33 @@ class _myshopState extends State<myshop> {
             //for firsy row
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              verticalDirection: VerticalDirection.up,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              //verticalDirection: VerticalDirection.up,
               children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  iconSize: 40,
+                  color: Colors.black,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const HomeShop(),
+                      ),
+                    );
+                  },
+                ),
+                /*
+                
+                ///
                 Container(
                   // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                  child: FloatingActionButton(
+                  child: InkWell(
                     child: Icon(Icons.arrow_back_outlined),
-                    onPressed: () {},
+                    // onPressed: () {},
                   ),
 
                   alignment: Alignment.topLeft,
-                ),
+                ),*/
                 Container(
                   child: Image(image: AssetImage('assets/sofa.png')),
                   padding: EdgeInsets.only(top: 51),
@@ -53,12 +73,12 @@ class _myshopState extends State<myshop> {
                 /* child: FloatingActionButton(
                     child: Icon(Icons.favorite_outline_rounded, size: 24),
                     onPressed: () {},
-                  ),*/ 
+                  ),*/
                 Align(
                   alignment: Alignment.topRight,
-                  child: FloatingActionButton(
+                  child: InkWell(
                     child: Icon(Icons.favorite_outline_rounded, size: 24),
-                    onPressed: () {},
+                    //onPressed: () {},
                   ),
                 )
               ],
@@ -84,7 +104,8 @@ class _myshopState extends State<myshop> {
                             fit: BoxFit.contain,
                             child: Text(
                               'Room Sofa',
-                              style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 32, fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -109,14 +130,12 @@ class _myshopState extends State<myshop> {
                               ],
                             ),
                           ),
-                        ),
+                        ), ///////
                       ],
                     ),
                   ),
                   Spacer(flex: 10),
-
                   Container(
-                   
                     child: FloatingActionButton(
                       onPressed: _decrementCounter,
                       tooltip: 'Increment',
@@ -130,14 +149,13 @@ class _myshopState extends State<myshop> {
                     ),
                   ),
                   Container(
-                     margin: EdgeInsets.only(right: 10),
+                    margin: EdgeInsets.only(right: 10),
                     //width: 15,
                     //height: ,
                     child: FloatingActionButton(
                       onPressed: _incrementCounter,
                       tooltip: 'Decrement',
                       child: const Icon(Icons.minimize),
-                      
                     ),
                   ),
                 ],
@@ -147,7 +165,10 @@ class _myshopState extends State<myshop> {
           Container(
             child: Text(
                 'Drawing Room Wooden Sofa Set is solid wooden sofa set which you can contrast the cushion of any color. The good sight caused ue to the furniture help us relax for a longer time. ',
-                style: TextStyle(fontSize: 14.0, color: Color(0xff000000),fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontSize: 14.0,
+                    color: Color(0xff000000),
+                    fontWeight: FontWeight.bold)),
             padding: EdgeInsets.only(left: 25),
           ),
           Container(
@@ -156,7 +177,10 @@ class _myshopState extends State<myshop> {
                 Container(
                   padding: EdgeInsets.only(left: 26),
                   child: Text('¥2500',
-                  style: TextStyle(fontSize: 24.0, color: Color(0xff000000),fontWeight: FontWeight.bold)),
+                      style: TextStyle(
+                          fontSize: 24.0,
+                          color: Color(0xff000000),
+                          fontWeight: FontWeight.bold)),
                 ),
                 Spacer(),
                 Container(
@@ -167,7 +191,7 @@ class _myshopState extends State<myshop> {
                 onPressed: () {},  
                 backgroundColor: Color(0xff7993AE),
               ),  */
-              margin: EdgeInsets.all(25),
+                  margin: EdgeInsets.all(25),
                   child: SizedBox(
                     width: 160.0,
                     height: 55.0,
@@ -177,8 +201,7 @@ class _myshopState extends State<myshop> {
                         style: TextStyle(fontSize: 16.0, color: Colors.white),
                       ),
                       onPressed: () {},
-                       backgroundColor: Color(0xff7993AE),
-                       
+                      backgroundColor: Color(0xff7993AE),
                     ),
                   ),
                 ),
@@ -191,3 +214,4 @@ class _myshopState extends State<myshop> {
     );
   }
 }
+//https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/?couponCode=LETSLEARNNOWPP
